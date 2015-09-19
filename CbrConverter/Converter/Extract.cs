@@ -365,7 +365,7 @@ namespace CbrConverter
             var writer = iTextSharp.text.pdf.PdfWriter.GetInstance(document, new FileStream(filename, FileMode.Create));
             document.Open();
 
-            string[] imageFiles = Directory.GetFiles(temporaryDir);
+            string[] imageFiles = Directory.GetFiles(temporaryDir).OrderBy(x => x).ToArray();
 
             //count for progression bar
             CurOneStep = imageFiles.Count();
